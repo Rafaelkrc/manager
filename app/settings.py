@@ -31,6 +31,8 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+AUTH_USER_MODEL = 'base.User'
+
 
 # Application definition
 
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-default_db_url = 'sqlite_///' + os.path.join(BASE_DIR, 'db.sqlite3')
+default_db_url = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 parse_database = partial(dj_database_url.parse, conn_max_age=600)
 
