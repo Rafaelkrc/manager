@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'base',
     'states',
     'organization',
+    'subsidiaries',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
