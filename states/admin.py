@@ -5,20 +5,20 @@ from states.models import Country, Region, State, City
 
 @admin.register(Country)
 class CountryAdmin(ModelAdmin):
-    list_display = ('name', 'abreviation')
-    search_fields = ('name', 'abreviation',)
+    list_display = ('name', 'abbreviation')
+    search_fields = ('name', 'abbreviation',)
 
 
 @admin.register(Region)
 class RegionAdmin(ModelAdmin):
-    list_display = ('name', 'abreviation')
-    search_fields = ('name', 'abreviation',)
+    list_display = ('name', 'abbreviation')
+    search_fields = ('name', 'abbreviation',)
 
 
 @admin.register(State)
 class StateAdmin(ModelAdmin):
-    list_display = ('name', 'abreviation', 'region', 'country')
-    search_fields = ('name', 'abreviation', 'region', 'country',)
+    list_display = ('name', 'abbreviation', 'region', 'country')
+    search_fields = ('name', 'abbreviation', 'region', 'country',)
 
 
 @admin.register(City)

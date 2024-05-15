@@ -19,6 +19,6 @@ class BrandAdmin(ModelAdmin):
 
 @admin.register(UnitMeasure)
 class unitMeasureAdmin(ModelAdmin):
-    list_display = ('name', 'abreviation',)
-    search_fields = ('name', 'abreviation',)
+    list_display = ('name', 'abbreviation',)
+    search_fields = ('name', 'abbreviation',)
     ordering = ('name',)

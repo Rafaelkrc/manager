@@ -17,7 +17,7 @@ class Brand(models.Model):
 
 class UnitMeasure(models.Model):
     name = models.CharField(max_length=10)
-    abraviation = models.CharField(max_length=3)
+    abbreviation = models.CharField(max_length=3)
 
     def __str__(self):
         return self.name
