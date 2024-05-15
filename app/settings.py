@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'organization',
     'subsidiaries',
     'product_caracteristics',
+    'production_sectors',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
