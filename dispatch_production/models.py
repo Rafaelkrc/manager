@@ -16,4 +16,4 @@ class DispatchProduction(models.Model):
     user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='dispatch_up_user')
 
     def __str__(self):
-        return str(self.product)
+        return str(self.po,)
