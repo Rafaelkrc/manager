@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'products',
     'dispatch_production',
     'production_movements',
+    'stock_entry',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
