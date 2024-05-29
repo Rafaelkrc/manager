@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'dispatch_production',
     'production_movements',
     'stock_entry',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
