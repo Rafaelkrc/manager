@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Manager - City
+{% endblock %}
+
+{% block content %}
+<h3 class="display-6">Cities</h3>
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form method="get" action="{% url 'city_list' %}">
+            <div class="input-group">
+                <input type="text" class="form-control" name="name" placeholder="name" value="{{ request.Get.name}}">
+                <input type="text" class="form-control" name="state" placeholder="state"
+                    value="{{ request.Get.state }}">
+                <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <a href="#" class="btn btn-success float-end">
+            <i class="bi bi-plus"></i> New
+        </a>
+    </div>
+</div>
+<div class="table-reponsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for city in cities %}
+            <tr>
+                <td>{{ city.name }}</td>
+                <td>{{ city.state }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

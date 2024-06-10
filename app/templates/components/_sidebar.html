@@ -25,13 +25,13 @@
                         States
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="#">Cities</a></li>
-                        <li><a class="dropdown-item" href="#">States</a></li>
-                        <li><a class="dropdown-item" href="#">Countries</a></li>
+                        <li><a class="dropdown-item" href="{% url 'city_list' %}">Cities</a></li>
+                        <li><a class="dropdown-item" href="{% url 'state_list' %}">States</a></li>
+                        <li><a class="dropdown-item" href="{% url 'country_list' %}">Countries</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Regions</a></li>
+                        <li><a class="dropdown-item" href="{% url 'region_list' %}">Regions</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
