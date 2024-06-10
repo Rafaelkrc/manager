@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Manager - Organization
+Manager - Employee
 {% endblock %}
 
 {% block content %}
-<h3 class="display-6">Organizations</h3>
+<h3 class="display-6">Emplyees</h3>
 <div class="row mb-3">
     <div class="col-md-6">
-        <form method="get" action="{% url 'organization_list' %}">
+        <form method="get" action="{% url 'employee_list' %}">
             <div class="input-group">
                 <input type="text" class="form-control" name="name" placeholder="name" value="{{ request.Get.name }}">
+                <input type="text" class="form-control" name="register" placeholder="register"
+                    value="{{ request.Get.register }}">
                 <button class="btn btn-primary"><i class="bi bi-search"></i></button>
             </div>
         </form>
@@ -28,16 +30,18 @@ Manager - Organization
                 <th>ID</th>
                 <th>Name</th>
                 <th>Register</th>
-                <th>Fantasy Name</th>
+                <th>Production Sector</th>
+                <th>E-mail</th>
             </tr>
         </thead>
         <tbody>
-            {% for organization in organizations %}
+            {% for employee in employees %}
             <tr>
-                <td>{{ organization.id }}</td>
-                <td>{{ organization.name }}</td>
-                <td>{{ organization.register }}</td>
-                <td>{{ organization.fantasy_name }}</td>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.register }}</td>
+                <td>{{ employee.production_sector.name }}</td>
+                <td>{{ employee.email }}</td>
             </tr>
             {% endfor %}
         </tbody>
