@@ -52,6 +52,21 @@
                     <a class="nav-link" href="{% url 'employee_list' %}">Employees</a>
                 </li>
                 </li>
+                <li class="nav-item dropdown col-sm-1 ">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Production
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{% url 'dispatch_production_list' %}">Dispatch Production</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'production_movement_list' %}">Production
+                                Movements</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'dispatch_production_list' %}">Dispatch Production</a>
                 </li>
