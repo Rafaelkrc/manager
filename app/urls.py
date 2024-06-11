@@ -30,4 +30,5 @@ urlpatterns = [
     path('', include('products.urls')),
     path('', include('dispatch_production.urls')),
     path('', include('production_movements.urls')),
+    path('', include('production_sectors.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
