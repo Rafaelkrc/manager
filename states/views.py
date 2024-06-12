@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class CityListView(ListView):
@@ -16,6 +17,13 @@ class CityListView(ListView):
         if state:
             queryset = queryset.filter(state__name__icontains=state)
         return queryset
+
+
+class CityCreateView(CreateView):
+    model = models.City
+    form_class = forms.CityForm
+    template_name = 'city_create.html'
+    success_url = reverse_lazy('city_list')
 
 
 class StateListView(ListView):
@@ -37,6 +45,13 @@ class StateListView(ListView):
         return queryset
 
 
+class StateCreateView(CreateView):
+    model = models.State
+    form_class = forms.StateForm
+    template_name = 'state_create.html'
+    success_url = reverse_lazy('state_list')
+
+
 class CountryListView(ListView):
     model = models.Country
     template_name = 'country_list.html'
@@ -53,6 +68,13 @@ class CountryListView(ListView):
         return queryset
 
 
+class CountryCreateView(CreateView):
+    model = models.Country
+    form_class = forms.CountryForm
+    template_name = 'country_create.html'
+    success_url = reverse_lazy('country_list')
+
+
 class RegionListView(ListView):
     model = models.Region
     template_name = 'region_list.html'
@@ -64,3 +86,10 @@ class RegionListView(ListView):
         if name:
             queryset = queryset.filter(name__icontains=name)
         return queryset
+
+
+class RegionCreateView(CreateView):
+    model = models.Region
+    form_class = forms.RegionForm
+    template_name = 'region_create.html'
+    success_url = reverse_lazy('region_list')
