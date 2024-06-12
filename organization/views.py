@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class OrganizationListView(ListView):
@@ -14,3 +15,10 @@ class OrganizationListView(ListView):
         if name:
             queryset = queryset.filter(name__icontains=name)
         return queryset
+
+
+class OrganizationCreateView(CreateView):
+    model = models.Organization
+    form_class = forms.OrganizationForm
+    template_name = 'organization_create.html'
+    success_url = reverse_lazy('organization_list')
