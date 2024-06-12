@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class SubsidiaryListView(ListView):
@@ -17,3 +18,10 @@ class SubsidiaryListView(ListView):
         if register:
             queryset = queryset.filter(register__icontains=register)
         return queryset
+
+
+class SubsidiaryCreateView(CreateView):
+    model = models.Subsidiary
+    form_class = forms.SubsidiaryForm
+    template_name = 'subsidiary_create.html'
+    success_url = reverse_lazy('subsidiary_list')
