@@ -16,7 +16,7 @@ Manager - Brand
         </form>
     </div>
     <div class="col-md-6">
-        <a href="#" class="btn btn-success float-end">
+        <a href="{% url 'brand_create' %}" class="btn btn-success float-end">
             <i class="bi bi-plus"></i> New
         </a>
     </div>
@@ -30,7 +30,7 @@ Manager - Brand
             </tr>
         </thead>
         <tbody>
-            {% for brand in brands %}
+            {% for brand in brands_list %}
             <tr>
                 <td>{{ brand.id }}</td>
                 <td>{{ brand.name }}</td>
