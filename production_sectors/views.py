@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class ProductionSectorListView(ListView):
@@ -13,3 +14,10 @@ class ProductionSectorListView(ListView):
         if name:
             queryset = queryset.filter(name__icontains=name)
         return queryset
+
+
+class ProductionSectorCreateView(CreateView):
+    model = models.ProductionSector
+    form_class = forms.ProductionSectorForm
+    template_name = 'production_sector_create.html'
+    success_url = reverse_lazy('production_sector_list')
