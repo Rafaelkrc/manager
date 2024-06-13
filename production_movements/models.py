@@ -16,8 +16,8 @@ class ProductionMovement(models.Model):
     destynation_employee = models.ForeignKey(Employee, on_delete=models.PROTECT, related_name='movement_dest_employee', default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    user_created = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='movement_user')
-    user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='movement_up_user')
+    user_created = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='movement_user', blank=True, null=True)
+    user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='movement_up_user', blank=True, null=True)
 
     def __str__(self) -> str:
         return str(self.po)

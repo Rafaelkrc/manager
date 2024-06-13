@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class ProductionMovementListView(ListView):
@@ -19,3 +20,10 @@ class ProductionMovementListView(ListView):
         if origin_sector:
             queryset = queryset.filter(origin_sector__name__icontains=origin_sector)
         return queryset
+
+
+class ProductionMovementCreateView(CreateView):
+    model = models.ProductionMovement
+    form_class = forms.ProductionMovementForm
+    template_name = 'production_movements_create.html'
+    success_url = reverse_lazy('production_movement_list')
