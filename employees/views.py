@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class EmployeeListView(ListView):
@@ -16,3 +17,10 @@ class EmployeeListView(ListView):
         if register:
             queryset = queryset.filter(regiter__incontains=name)
         return queryset
+
+
+class EmployeeCreateView(CreateView):
+    model = models.Employee
+    form_class = forms.EmployeeForm
+    template_name = 'employee_create.html'
+    success_url = reverse_lazy('employee_list')
