@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -25,3 +25,8 @@ class SubsidiaryCreateView(CreateView):
     form_class = forms.SubsidiaryForm
     template_name = 'subsidiary_create.html'
     success_url = reverse_lazy('subsidiary_list')
+
+
+class SubsidiaryDetailView(DetailView):
+    model = models.Subsidiary
+    template_name = 'subsidiary_detail.html'
