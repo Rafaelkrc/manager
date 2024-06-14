@@ -18,10 +18,14 @@
             <p class="card-text">State: {{ organization.state }}</p>
             <p class="card-text">Country: {{ organization.country }}</p>
             <p class="card-date">Date of fundation: {{ organization.date_of_fundation }}</p>
-            <div class="card-img">
-                <img src="{{ organization.logo }}" class="card-img" alt="Logo">
+            <div class="card" style="width: 10rem">
+                {% if organization.logo %}
+                <img src="{{ organization.logo.url }}" class="card-img" alt="Logo" id="logo">
+                {% else %}
+                <p><img src="/mediafiles/organization/semfoto.jpg" alt=""></p>
+                {% endif %}
             </div>
-            <div>
+            <div class="btn">
                 <a href="{% url 'organization_list' %}" class="btn btn-secondary">Cancel and
                     Return</a>
             </div>

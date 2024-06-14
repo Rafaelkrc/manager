@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Subsidiary Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="display-6">Subsidiary Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Name: {{ subsidiary.name }}</h3>
+            <p class="card-text">Register: {{ subsidiary.register }}</p>
+            <p class="card-text">Fantasy name: {{ subsidiary.fantasy_name }}</p>
+            <p class="card-text">Adress: {{ subsidiary.adress }}</p>
+            <p class="card-text">Number Adress: {{ subsidiary.number_adress }}</p>
+            <p class="card-text">Neighbourhood: {{ subsidiary.neighbourhood }}</p>
+            <p class="card-text">City: {{ subsidiary.city }}</p>
+            <p class="card-text">State: {{ subsidiary.state }}</p>
+            <p class="card-text">Country: {{ subsidiary.country }}</p>
+            <p class="card-email">E-mail: {{ subsidiary.email }}</p>
+            <p class="card-date">Date of fundation: {{ subsidiary.date_of_fundation }}</p>
+            <div class="card" style="width: 10rem">
+                {% if subsidiary.logo %}
+                <img src="{{ subsidiary.logo.url }}" class="card-img" alt="Logo" id="logo">
+                {% else %}
+                <p><img src="{{ object.semfoto.url }}" alt=""></p>
+                {% endif %}
+            </div>
+            <div class="btn">
+                <a href="{% url 'subsidiary_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

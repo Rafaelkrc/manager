@@ -31,6 +31,7 @@ Manager - Subsidiary
                 <th>Name</th>
                 <th>Register</th>
                 <th>Fantasy Name</th>
+                <th>Options</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +41,11 @@ Manager - Subsidiary
                 <td>{{ subsidiary.name }}</td>
                 <td>{{ subsidiary.register }}</td>
                 <td>{{ subsidiary.fantasy_name }}</td>
+                <td>
+                    <a href="{% url 'subsidiary_detail' subsidiary.id %}" class="btn btn-info brn-sm">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
