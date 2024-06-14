@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Organization Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="display-6">Organization Details</h3>
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="card-title">Name: {{ organization.name }}</h3>
+            <p class="card-text">Register: {{ organization.register }}</p>
+            <p class="card-text">Fantasy name: {{ organization.fantasy_name }}</p>
+            <p class="card-text">Adress: {{ organization.adress }}</p>
+            <p class="card-text">Number Adress: {{ organization.number_adress }}</p>
+            <p class="card-text">Neighbourhood: {{ organization.neighbourhood }}</p>
+            <p class="card-text">City: {{ organization.city }}</p>
+            <p class="card-text">State: {{ organization.state }}</p>
+            <p class="card-text">Country: {{ organization.country }}</p>
+            <p class="card-date">Date of fundation: {{ organization.date_of_fundation }}</p>
+            <div class="card-img">
+                <img src="{{ organization.logo }}" class="card-img" alt="Logo">
+            </div>
+            <div>
+                <a href="{% url 'organization_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
