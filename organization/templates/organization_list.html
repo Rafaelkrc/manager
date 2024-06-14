@@ -29,6 +29,7 @@ Manager - Organization
                 <th>Name</th>
                 <th>Register</th>
                 <th>Fantasy Name</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,10 @@ Manager - Organization
                 <td>{{ organization.name }}</td>
                 <td>{{ organization.register }}</td>
                 <td>{{ organization.fantasy_name }}</td>
+                <td>
+                    <a href="{% url 'organization_detail' organization.id %}" class="btn btn-info btn-sm"><i
+                            class="bi bi-eye"></i></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
