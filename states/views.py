@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -24,6 +24,11 @@ class CityCreateView(CreateView):
     form_class = forms.CityForm
     template_name = 'city_create.html'
     success_url = reverse_lazy('city_list')
+
+
+class CityDetailView(DetailView):
+    model = models.City
+    template_name = 'city_detail.html'
 
 
 class StateListView(ListView):
@@ -52,6 +57,11 @@ class StateCreateView(CreateView):
     success_url = reverse_lazy('state_list')
 
 
+class StateDetailView(DetailView):
+    model = models.State
+    template_name = 'state_detail.html'
+
+
 class CountryListView(ListView):
     model = models.Country
     template_name = 'country_list.html'
@@ -75,6 +85,11 @@ class CountryCreateView(CreateView):
     success_url = reverse_lazy('country_list')
 
 
+class CountryDetailView(DetailView):
+    model = models.Country
+    template_name = 'country_detail.html'
+
+
 class RegionListView(ListView):
     model = models.Region
     template_name = 'region_list.html'
@@ -93,3 +108,8 @@ class RegionCreateView(CreateView):
     form_class = forms.RegionForm
     template_name = 'region_create.html'
     success_url = reverse_lazy('region_list')
+
+
+class RegionDetailView(DetailView):
+    model = models.Region
+    template_name = 'region_detail.html'
