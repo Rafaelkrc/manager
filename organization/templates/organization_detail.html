@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Organization Details{% endblock %}
 
@@ -22,13 +23,11 @@
                 {% if organization.logo %}
                 <img src="{{ organization.logo.url }}" class="card-img" alt="Logo" id="logo">
                 {% else %}
-                <p><img src="/mediafiles/organization/semfoto.jpg" alt=""></p>
+                <p><img src="{% static 'img/semfoto.jpg'}" alt="" id="logo"></p>
                 {% endif %}
             </div>
-            <div class="btn">
-                <a href="{% url 'organization_list' %}" class="btn btn-secondary">Cancel and
-                    Return</a>
-            </div>
+            <a href="{% url 'organization_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
         </div>
     </div>
 </div>

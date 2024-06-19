@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Subsidiary Details{% endblock %}
 
 {% block content %}
+
 <div class="container mt-4">
     <h3 class="display-6">Subsidiary Details</h3>
     <div class="card">
@@ -22,13 +23,13 @@
                 {% if subsidiary.logo %}
                 <img src="{{ subsidiary.logo.url }}" class="card-img" alt="Logo" id="logo">
                 {% else %}
-                <p><img src="{{ object.semfoto.url }}" alt=""></p>
+                <img src="{% static 'img/semfoto.jpg' %}" alt="" id="logo">
                 {% endif %}
             </div>
-            <div class="btn">
-                <a href="{% url 'subsidiary_list' %}" class="btn btn-secondary">Cancel and
-                    Return</a>
-            </div>
+
+            <a href="{% url 'subsidiary_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+
         </div>
     </div>
 </div>

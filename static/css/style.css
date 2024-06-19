@@ -1,0 +1,33 @@
+#logo {
+    width: 280px;
+    height: 150px;
+}
+
+button#search {
+    margin-top: 0px;
+}
+
+a#button-cancel {
+    margin-top: 10px;
+}
+
+.navbar {
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+ul.dropdown-menu {
+    width: 200px;
+}
+
+td {
+    vertical-align: middle;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
