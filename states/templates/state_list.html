@@ -33,6 +33,7 @@ Manager - State
                 <th>Abbreviation</th>
                 <th>Country</th>
                 <th>Region</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,10 @@ Manager - State
                 <td>{{ state.abbreviation }}</td>
                 <td>{{ state.country }}</td>
                 <td>{{ state.region }}</td>
+                <td>
+                    <a href="{% url 'state_detail' state.id %}" class="btn btn-info btn-sm"><i
+                            class="bi bi-eye"></i></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

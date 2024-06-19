@@ -29,6 +29,7 @@ Manager - City
             <tr>
                 <th>Name</th>
                 <th>State</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +37,9 @@ Manager - City
             <tr>
                 <td>{{ city.name }}</td>
                 <td>{{ city.state }}</td>
+                <td>
+                    <a href="{% url 'city_detail' city.id %}" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

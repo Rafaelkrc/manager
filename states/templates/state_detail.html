@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}States Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="display-6">States Details</h3>
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="card-title">Name: {{ state.name }}</h3>
+            <p class="card-text">Abbreviation: {{ state.abbreviation }}</p>
+            <p class="card-text">Region: {{ state.region }}</p>
+            <p class="card-text">Country: {{ state.country }}</p>
+            <a href="{% url 'state_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
