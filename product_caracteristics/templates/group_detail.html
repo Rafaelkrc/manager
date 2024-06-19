@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Group Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="display-6">Group Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Name: {{ group.id }} - {{ group.name }}</h3>
+            <a href="{% url 'group_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

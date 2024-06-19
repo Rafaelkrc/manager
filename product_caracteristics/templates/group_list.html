@@ -27,6 +27,7 @@ Manager - Group
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,10 @@ Manager - Group
             <tr>
                 <td>{{ group.id }}</td>
                 <td>{{ group.name }}</td>
+                <td>
+                    <a href="{% url 'group_detail' group.id %}" class="btn btn-info btn-sm"><i
+                            class="bi bi-eye"></i></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

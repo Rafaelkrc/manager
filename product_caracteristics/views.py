@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -23,6 +23,11 @@ class GroupCreateView(CreateView):
     success_url = reverse_lazy('group_list')
 
 
+class GroupDetailView(DetailView):
+    model = models.Group
+    template_name = 'group_detail.html'
+
+
 class BrandListView(ListView):
     model = models.Brand
     template_name = 'brand_list.html'
@@ -43,6 +48,11 @@ class BrandCreateView(CreateView):
     success_url = reverse_lazy('brand_list')
 
 
+class BrandDetailView(DetailView):
+    model = models.Brand
+    template_name = 'brand_detail.html'
+
+
 class UnitMeasureListView(ListView):
     model = models.UnitMeasure
     template_name = 'unitmeasure_list.html'
@@ -61,3 +71,8 @@ class UnitMeasureCreateView(CreateView):
     form_class = forms.UnitMeasureForm
     template_name = 'unitmeasure_create.html'
     success_url = reverse_lazy('unitmeasure_list')
+
+
+class UnitMeasureDetailView(DetailView):
+    model = models.UnitMeasure
+    template_name = 'unitmeasure_detail.html'

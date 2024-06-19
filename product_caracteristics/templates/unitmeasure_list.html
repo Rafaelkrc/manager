@@ -28,6 +28,7 @@ Manager - Unit Measure
                 <th>ID</th>
                 <th>Name</th>
                 <th>Abbreviation</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +37,10 @@ Manager - Unit Measure
                 <td>{{ unitmeasure.id }}</td>
                 <td>{{ unitmeasure.name }}</td>
                 <td>{{ unitmeasure.abbreviation }}</td>
+                <td>
+                    <a href="{% url 'unitmeasure_detail' unitmeasure.id %}" class="btn btn-info btn-sm"><i
+                            class="bi bi-eye"></i></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
