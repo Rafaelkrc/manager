@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Employee Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Employee Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Name: {{ employee_details.name }}</h3>
+            <p class="card-text">Register: {{ employee_details.register }}</p>
+            <p class="card-text">Adress: {{ employee_details.adress }}</p>
+            <p class="card-text">Adress Number : {{ employee_details.adress_number }}</p>
+            <p class="card-text">Neighbourhood: {{ employee_details.neighbourhood }}</p>
+            <p class="card-text">City: {{ employee_details.city }}</p>
+            <p class="card-text">State: {{ employee_details.state }}</p>
+            <p class="card-text">Country: {{ employee_details.country }}</p>
+            <p class="card-email">E-mail: {{ employee_details.email }}</p>
+            <p class="card-date">Production Sector(s): </p>
+            {% for employee in employee_details.production_sector.all %}
+            <li>{{ employee.name }}</li>
+            {% endfor %}
+            <a href="{% url 'employee_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
