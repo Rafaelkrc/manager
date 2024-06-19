@@ -1,5 +1,6 @@
-from django.views.generic import ListView
-from . import models
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from . import models, forms
 
 
 class DispatchProductionListView(ListView):
@@ -16,3 +17,10 @@ class DispatchProductionListView(ListView):
         if product:
             queryset = queryset.filter(product__name__icontains=product)
         return queryset
+
+
+class DispatchProductionCreateView(CreateView):
+    model = models.DispatchProduction
+    form_class = forms.DispatchProductionForm
+    template_name = 'dispatch_production_create.html'
+    success_url = reverse_lazy('dispatch_production_list')
