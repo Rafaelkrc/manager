@@ -12,8 +12,8 @@ class DispatchProduction(models.Model):
     estimated_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    user_created = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='dispatch_user')
-    user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='dispatch_up_user')
+    user_created = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='dispatch_user', blank=True, null=True)
+    user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='dispatch_up_user', blank=True, null=True)
 
     def __str__(self):
         return str(self.po,)
