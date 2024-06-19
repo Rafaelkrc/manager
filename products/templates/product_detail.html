@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Product Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Name: {{ product_details.code }} - {{ product_details.name }}</h3>
+            <p class="card-text">Organization: {{ product_details.organization }}</p>
+            <p class="card-text">Subsidiary: {{ product_details.subsidiary }}</p>
+            <p class="card-text">Group: {{ product_details.group }}</p>
+            <p class="card-text">Brand: {{ product_details.brand}}</p>
+            <p class="card-text">Cost Price: {{ product_details.cost_price }}</p>
+            <p class="card-text">Selling Price: {{ product_details.selling_price }}</p>
+            <p class="card-text">Unit Measure: {{ product_details.unit_measure }}</p>
+            <p class="card-text">Quantity: {{ product_details.quantity }}</p>
+            <p class="card-time">Production Time: {{ product_details.production_time }}</p>
+            <p class="card-time">Average Production Time: {{ product_details.average_production_time }}</p>
+            <p class="card-list">Production Sectors:</p>
+            {% for sector in product_details.production_sectors.all %}
+            <li>
+                {{ sector.name }}
+            </li>
+            {% endfor %}
+            <p></p>
+            <p class="card-date">Created at: {{ product_details.created_at }}</p>
+            <p class="card-date">Update at: {{ product_details.update_at }}</p>
+            <p class="card-date">User Created: {{ product_details.user_created }}</p>
+            <p class="card-date">User update: {{ product_details.user_update }}</p>
+            <a href="{% url 'product_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
