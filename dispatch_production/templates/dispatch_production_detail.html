@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dipatch Production Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Dipatch Production Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">PO: {{ dispatchproduction.po }}</h3>
+            <p class="card-text">Product: {{ dispatchproduction.product }}</p>
+            <p class="card-text">Quantity: {{ dispatchproduction.quantity }}</p>
+            <p class="card-text">Description: {{ dispatchproduction.description}}</p>
+            <p class="card-text">Priority: {{ dispatchproduction.priority }}</p>
+            <p class="card-date">Estimated Date: {{ dispatchproduction.estimated_date}}</p>
+            <p class="card-date">Created at: {{ dispatchproduction.created_at }}</p>
+            <p class="card-date">Update at: {{ dispatchproduction.update_at }}</p>
+            <p class="card-date">User Created: {{ dispatchproduction.user_created}}</p>
+            <p class="card-date">User Updated: {{ dispatchproduction.user_updated}}</p>
+            <a href="{% url 'dispatch_production_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

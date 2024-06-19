@@ -33,6 +33,7 @@ Manager - Dispatch Production
                 <th>Description</th>
                 <th>Priority</th>
                 <th>Estimated Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,11 @@ Manager - Dispatch Production
                 <td>{{ dispatch.description }}</td>
                 <td>{{ dispatch.priority }}</td>
                 <td>{{ dispatch.estimated_date }}</td>
+                <td>
+                    <a href="{% url 'dispatch_production_detail' dispatch.po %}" class="btn btn-info btn-sm">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
