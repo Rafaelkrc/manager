@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -30,3 +30,9 @@ class ProductCreateView(CreateView):
     form_class = forms.ProductForm
     template_name = 'product_create.html'
     success_url = reverse_lazy('product_list')
+
+
+class ProductDetailView(DetailView):
+    model = models.Product
+    template_name = 'product_detail.html'
+    context_object_name = 'product_details'
