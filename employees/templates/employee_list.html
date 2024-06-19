@@ -32,6 +32,7 @@ Manager - Employee
                 <th>Register</th>
                 <th>Production Sector</th>
                 <th>E-mail</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,11 @@ Manager - Employee
                 <td>{{ employee.register }}</td>
                 <td>{{ employee.production_sector.name }}</td>
                 <td>{{ employee.email }}</td>
+                <td>
+                    <a href="{% url 'employee_detail' employee.id %}" class="btn btn-info btn-sm">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

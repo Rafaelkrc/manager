@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -24,3 +24,9 @@ class EmployeeCreateView(CreateView):
     form_class = forms.EmployeeForm
     template_name = 'employee_create.html'
     success_url = reverse_lazy('employee_list')
+
+
+class EmployeeDetailView(DetailView):
+    model = models.Employee
+    template_name = 'employee_detail.html'
+    context_object_name = 'employee_details'
