@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Production Movements Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Production Movements Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">PO: {{ productionmovement.po }}</h3>
+            <p class="card-text">Quantity: {{ productionmovement.quantity }}</p>
+            <p class="card-text">Description: {{ productionmovement.description}}</p>
+            <p class="card-text">Orgin Employee: {{ productionmovement.employee }}</p>
+            <p class="card-text">Origin Sector: {{ productionmovement.origin_sector }}</p>
+            <p class="card-text">Priority: {{ productionmovement.priority }}</p>
+            <p class="card-text">Destynation Sector: {{ productionmovement.destination_sector}}</p>
+            <p class="card-text">Destynation Employee: {{ productionmovement.destynation_employee }}</p>
+            <p class="card-text">Created at: {{ productionmovement.created_at }}</p>
+            <p class="card-email">Update at: {{ productionmovement.update_at }}</p>
+            <p class="card-date">User Created: {{ productionmovement.user_created}}</p>
+            <p class="card-date">User Updated: {{ productionmovement.user_updated}}</p>
+            <a href="{% url 'production_movement_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
