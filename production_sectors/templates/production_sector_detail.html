@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Production Sector Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Production Sector Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Name: {{ productionsector.name }}</h3>
+            <p class="card-text">Type: {{ productionsector.type }}</p>
+            <p class="card-text">Ordering: {{ productionsector.ordering }}</p>
+            <a href="{% url 'production_sector_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
