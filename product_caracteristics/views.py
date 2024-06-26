@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -28,6 +28,19 @@ class GroupDetailView(DetailView):
     template_name = 'group_detail.html'
 
 
+class GroupUpdateView(UpdateView):
+    model = models.Group
+    form_class = forms.GroupForm
+    template_name = 'group_update.html'
+    success_url = reverse_lazy('group_list')
+
+
+class GroupDeleteView(DeleteView):
+    model = models.Group
+    template_name = 'group_delete.html'
+    success_url = reverse_lazy('group_list')
+
+
 class BrandListView(ListView):
     model = models.Brand
     template_name = 'brand_list.html'
@@ -53,6 +66,19 @@ class BrandDetailView(DetailView):
     template_name = 'brand_detail.html'
 
 
+class BrandUpdateView(UpdateView):
+    model = models.Brand
+    form_class = forms.BrandForm
+    template_name = 'brand_update.html'
+    success_url = reverse_lazy('brand_list')
+
+
+class BrandDeleteView(DeleteView):
+    model = models.Brand
+    template_name = 'brand_delete.html'
+    success_url = reverse_lazy('brand_list')
+
+
 class UnitMeasureListView(ListView):
     model = models.UnitMeasure
     template_name = 'unitmeasure_list.html'
@@ -76,3 +102,16 @@ class UnitMeasureCreateView(CreateView):
 class UnitMeasureDetailView(DetailView):
     model = models.UnitMeasure
     template_name = 'unitmeasure_detail.html'
+
+
+class UnitMeasureUpdateView(UpdateView):
+    model = models.UnitMeasure
+    form_class = forms.UnitMeasureForm
+    template_name = 'unitmeasure_update.html'
+    success_url = reverse_lazy('unitmeasure_list')
+
+
+class UnitMeasureDeleteView(DeleteView):
+    model = models.UnitMeasure
+    template_name = 'unitmeasure_delete.html'
+    success_url = reverse_lazy('unitmeasure_list')

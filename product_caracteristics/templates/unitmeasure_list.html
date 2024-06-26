@@ -40,6 +40,8 @@ Manager - Unit Measure
                 <td>
                     <a href="{% url 'unitmeasure_detail' unitmeasure.id %}" class="btn btn-info btn-sm"><i
                             class="bi bi-eye"></i></a>
+                    <a href="{% url 'unitmeasure_update' unitmeasure.id %}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                    <a href="{% url 'unitmeasure_delete' unitmeasure.id %}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
             {% endfor %}
