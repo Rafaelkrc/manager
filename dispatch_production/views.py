@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -29,3 +29,16 @@ class DispatchProductionCreateView(CreateView):
 class DispatchProductionDetailView(DetailView):
     model = models.DispatchProduction
     template_name = 'dispatch_production_detail.html'
+
+
+class DispatchProductionUpdateView(UpdateView):
+    model = models.DispatchProduction
+    form_class = forms.DispatchProductionForm
+    template_name = 'dispatch_production_update.html'
+    success_url = reverse_lazy('dispatch_production_list')
+
+
+class DispatchProductionDeleteView(DeleteView):
+    model = models.DispatchProduction
+    template_name = 'dispatch_production_delete.html'
+    success_url = reverse_lazy('dispatch_production_list')
