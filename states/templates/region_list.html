@@ -38,6 +38,10 @@ Manager - Region
                 <td>
                     <a href="{% url 'region_detail' region.id %}" class="btn btn-info btn-sm"><i
                             class="bi bi-eye"></i></a>
+                    <a href="{% url 'region_update' region.id %}" class="btn btn-warning btn-sm"><i
+                            class="bi bi-pencil"></i></a>
+                    <a href="{% url 'region_delete' region.id %}" class="btn btn-danger btn-sm"><i
+                            class="bi bi-trash"></i></a>
                 </td>
             </tr>
             {% endfor %}

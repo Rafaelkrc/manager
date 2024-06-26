@@ -9,7 +9,7 @@ class CityForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'estate': forms.Select(attrs={'class': 'form-control'}),
+            'state': forms.Select(attrs={'class': 'form-control'}),
         }
 
 
