@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -30,3 +30,16 @@ class SubsidiaryCreateView(CreateView):
 class SubsidiaryDetailView(DetailView):
     model = models.Subsidiary
     template_name = 'subsidiary_detail.html'
+
+
+class SubsidiaryUpdateView(UpdateView):
+    model = models.Subsidiary
+    template_name = 'subsidiary_update.html'
+    form_class = forms.SubsidiaryForm
+    success_url = reverse_lazy('subsidiary_list')
+
+
+class SubsidiaryDeleteView(DeleteView):
+    model = models.Subsidiary
+    template_name = 'subsidiary_delete.html'
+    success_url = reverse_lazy('subsidiary_list')
