@@ -46,6 +46,10 @@ Manager - State
                 <td>
                     <a href="{% url 'state_detail' state.id %}" class="btn btn-info btn-sm"><i
                             class="bi bi-eye"></i></a>
+                    <a href="{% url 'state_update' state.id %}" class="btn btn-warning btn-sm"><i
+                            class="bi bi-pencil"></i></a>
+                    <a href="{% url 'state_delete' state.id %}" class="btn btn-danger btn-sm"><i
+                            class="bi bi-trash"></i></a>
                 </td>
             </tr>
             {% endfor %}

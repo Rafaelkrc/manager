@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -29,6 +29,19 @@ class CityCreateView(CreateView):
 class CityDetailView(DetailView):
     model = models.City
     template_name = 'city_detail.html'
+
+
+class CityUpdateView(UpdateView):
+    model = models.City
+    form_class = forms.CityForm
+    template_name = 'city_update.html'
+    success_url = reverse_lazy('city_list')
+
+
+class CityDeleteView(DeleteView):
+    model = models.City
+    template_name = 'city_delete.html'
+    success_url = reverse_lazy('city_list')
 
 
 class StateListView(ListView):
@@ -62,6 +75,19 @@ class StateDetailView(DetailView):
     template_name = 'state_detail.html'
 
 
+class StateUpdateView(UpdateView):
+    model = models.State
+    form_class = forms.StateForm
+    template_name = 'state_update.html'
+    success_url = reverse_lazy('state_list')
+
+
+class StateDeleteView(DeleteView):
+    model = models.State
+    template_name = 'state_delete.html'
+    success_url = reverse_lazy('state_list')
+
+
 class CountryListView(ListView):
     model = models.Country
     template_name = 'country_list.html'
@@ -90,6 +116,19 @@ class CountryDetailView(DetailView):
     template_name = 'country_detail.html'
 
 
+class CountryUpdateView(UpdateView):
+    model = models.Country
+    form_class = forms.CountryForm
+    template_name = 'country_update.html'
+    success_url = reverse_lazy('country_list')
+
+
+class CountryDeleteView(DeleteView):
+    model = models.Country
+    template_name = 'country_delete.html'
+    success_url = reverse_lazy('country_list')
+
+
 class RegionListView(ListView):
     model = models.Region
     template_name = 'region_list.html'
@@ -113,3 +152,16 @@ class RegionCreateView(CreateView):
 class RegionDetailView(DetailView):
     model = models.Region
     template_name = 'region_detail.html'
+
+
+class RegionUpdateView(UpdateView):
+    model = models.Region
+    form_class = forms.RegionForm
+    template_name = 'region_update.html'
+    success_url = reverse_lazy('region_list')
+
+
+class RegionDeleteView(DeleteView):
+    model = models.Region
+    template_name = 'region_delete.html'
+    success_url = reverse_lazy('region_list')
