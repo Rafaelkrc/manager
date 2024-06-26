@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Unit Measure Delete{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Unit Measure Delete</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"><strong class="bg-danger">Do you want to delete it?</strong></h3>
+            <p></p>
+            <p class="card-text">Name: <strong>{{ unitmeasure.name }}</strong></p>
+            <p class="card-text">Abbreviation: <strong>{{ unitmeasure.abbreviation }}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'unitmeasure_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
