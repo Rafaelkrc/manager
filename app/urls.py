@@ -31,4 +31,5 @@ urlpatterns = [
     path('', include('dispatch_production.urls')),
     path('', include('production_movements.urls')),
     path('', include('production_sectors.urls')),
+    path('', include('stock_entry.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Stock Entry Details{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Stock Entry Details</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Name: {{ stockentry.name }}</h3>
+            <p class="card-text">Register: {{ stockentry.register }}</p>
+            <p class="card-text">PO: {{ stockentry.po }}</p>
+            <p class="card-text">Quantity: {{ stockentry.quantity }}</p>
+            <p class="card-text">Description: {{ stockentry.description }}</p>
+            <p class="card-text">Employee: {{ stockentry.employee }}</p>
+            <p class="card-text">Origin Sector: {{ stockentry.origin_sector }}</p>
+            <p class="card-date">Created at: {{ stockentry.created_at }}</p>
+            <p class="card-date">Update at: {{ stockentry.update_at }}</p>
+            <p class="card-text">User Created: {{ stockentry.user_created }}</p>
+            <p class="card-text">User Updated: {{ stockentry.user_updated }}</p>
+            <a href="{% url 'stock_entry_list' %}" class="btn btn-secondary" id="button-cancel">Cancel and
+                Return</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

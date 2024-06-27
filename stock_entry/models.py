@@ -14,8 +14,8 @@ class StockEntry(models.Model):
     origin_sector = models.ForeignKey(ProductionSector, on_delete=models.PROTECT, related_name='entry_orig_sector', default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    user_created = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='entry_user')
-    user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='entry_up_user')
+    user_created = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='entry_user', null=True, blank=True)
+    user_update = models.ForeignKey(User, on_delete=models.PROTECT, auto_created=True, related_name='entry_up_user', null=True, blank=True)
 
     def __str__(self):
         return self.name
