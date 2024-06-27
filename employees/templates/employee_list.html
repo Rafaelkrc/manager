@@ -5,7 +5,7 @@ Manager - Employee
 {% endblock %}
 
 {% block content %}
-<h3 class="display-6">Emplyees</h3>
+<h3 class="display-6">Employees</h3>
 <div class="row mb-3">
     <div class="col-md-6">
         <form method="get" action="{% url 'employee_list' %}">
@@ -47,6 +47,11 @@ Manager - Employee
                     <a href="{% url 'employee_detail' employee.id %}" class="btn btn-info btn-sm">
                         <i class="bi bi-eye"></i>
                     </a>
+                    <a href="{% url 'employee_update' employee.id %}" class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a href="{% url 'employee_delete' employee.id %}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
                 </td>
             </tr>
             {% endfor %}

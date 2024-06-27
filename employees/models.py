@@ -13,7 +13,7 @@ class Employee(models.Model):
     state = models.ForeignKey(State, on_delete=models.PROTECT, related_name='employee_state')
     country = models.ForeignKey(Country, on_delete=models.PROTECT, related_name='employee_country')
     email = models.EmailField()
-    production_sector = models.ManyToManyField(ProductionSector, related_name='employee_sector')
+    production_sector = models.ManyToManyField(ProductionSector, related_name='employee_sector', blank=True)
 
     def __str__(self):
         return self.name
