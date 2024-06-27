@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
 
@@ -32,3 +32,16 @@ class ProductionMovementCreateView(CreateView):
 class ProductionMovementDetailView(DetailView):
     model = models.ProductionMovement
     template_name = 'production_movements_detail.html'
+
+
+class ProductionMovementUpdateView(UpdateView):
+    model = models.ProductionMovement
+    form_class = forms.ProductionMovementForm
+    template_name = 'production_movements_update.html'
+    success_url = reverse_lazy('production_movement_list')
+
+
+class ProductionMovementDeleteView(DeleteView):
+    model = models.ProductionMovement
+    template_name = 'production_movements_delete.html'
+    success_url = reverse_lazy('production_movement_list')
