@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Check Product Delete{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Check Product Delete</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"><strong class="bg-danger">Product <strong>{{ product.code }} - {{ product.name }}</strong> already has related movement, please check!</strong></h3>
+            <p></p>
+            <p class="card-text">Code: <strong>{{ product.code }}</strong></p>
+            <p class="card-text">Name: <strong>{{ product.name }}</strong></p>
+            <p class="card-text">Group: <strong>{{ product.group }}</strong></p>
+            <p class="card-text">Brand: <strong>{{ product.brand }}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
