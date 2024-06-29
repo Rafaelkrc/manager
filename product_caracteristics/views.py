@@ -150,3 +150,19 @@ class UnitMeasureDeleteView(DeleteView):
     model = models.UnitMeasure
     template_name = 'unitmeasure_delete.html'
     success_url = reverse_lazy('unitmeasure_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        unitmeasure = self.get_object()
+        context['name'] = unitmeasure.name
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "Unit Measure is already related, cannot be deleted!")
+            return render(request, 'unitmeasure_undelete.html', context)
