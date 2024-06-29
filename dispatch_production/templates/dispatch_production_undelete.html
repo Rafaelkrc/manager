@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Check Dispatch Production Delete{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Check Dispatch Production Delete</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"><strong class="bg-danger">Dispatch Production <strong>{{ dispatchproduction.po }} - {{ dispatchproduction.product}}</strong> already has related movement, please check!</strong></h3>
+            <p></p>
+            <p class="card-text">PO: <strong>{{ dispatch_production.po }}</strong></p>
+            <p class="card-text">Product: <strong>{{ dispatch_production.product }}</strong></p>
+            <p class="card-text">Quantity: <strong>{{ dispatch_production.quantity}}</strong></p>
+            <p class="card-text">Created At: <strong>{{ dispatch_production.created_at}}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'dispatch_production_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
