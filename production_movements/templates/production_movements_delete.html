@@ -13,12 +13,31 @@
             <p class="card-text">Quantity: <strong>{{ productionmovement.quantity }}</strong></p>
             <p class="card-text">Employee: <strong>{{ productionmovement.employee }}</strong></p>
             <p class="card-text">Origin Sector: <strong>{{ productionmovement.origin_sector }}</strong></p>
-            <form method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Delete</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure you want to delete it?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Do you really want to exclude the unit production movement <strong>{{ productionmovement.id }}</strong>?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Yes!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <a href="{% url 'production_movement_list' %}" class="btn btn-secondary">Cancel and
                     Return</a>
-            </form>
         </div>
     </div>
 </div>
