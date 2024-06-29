@@ -43,6 +43,22 @@ class GroupDeleteView(DeleteView):
     template_name = 'group_delete.html'
     success_url = reverse_lazy('group_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        group = self.get_object()
+        context['name'] = group.name
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "Group is already related, cannot be deleted!")
+            return render(request, 'group_undelete.html', context)
+
 
 class BrandListView(ListView):
     model = models.Brand
