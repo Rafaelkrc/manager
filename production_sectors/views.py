@@ -1,3 +1,6 @@
+from django.contrib import messages
+from django.db.models import ProtectedError
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
@@ -39,3 +42,19 @@ class ProductionSectorDeleteView(DeleteView):
     model = models.ProductionSector
     template_name = 'production_sector_delete.html'
     success_url = reverse_lazy('production_sector_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        production_sector = self.get_object()
+        context['name'] = production_sector.name
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "Production Sector is already related to flows, cannot be deleted!")
+            return render(request, 'production_sector_undelete.html', context)
