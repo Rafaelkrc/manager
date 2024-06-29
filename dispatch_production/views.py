@@ -1,3 +1,6 @@
+from django.contrib import messages
+from django.db.models import ProtectedError
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from . import models, forms
@@ -42,3 +45,22 @@ class DispatchProductionDeleteView(DeleteView):
     model = models.DispatchProduction
     template_name = 'dispatch_production_delete.html'
     success_url = reverse_lazy('dispatch_production_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        dispatch_production = self.get_object()
+        context['po'] = dispatch_production.po
+        context['product'] = dispatch_production.product
+        context['quantity'] = dispatch_production.quantity
+        context['created_at'] = dispatch_production.created_at
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "Product linked to a production movement, cannot be deleted!")
+            return render(request, 'product_undelete.html', context)
