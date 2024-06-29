@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Check Country Delete{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Check Country Delete</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"><strong class="bg-danger">Country <strong>{{ country.name }}</strong> already has related, please check!</strong></h3>
+            <p></p>
+            <p class="card-text">Name: <strong>{{ country.name }}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'country_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

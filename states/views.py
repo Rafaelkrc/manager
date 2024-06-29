@@ -147,6 +147,22 @@ class CountryDeleteView(DeleteView):
     template_name = 'country_delete.html'
     success_url = reverse_lazy('country_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        country = self.get_object()
+        context['name'] = country.name
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "Country is already related, cannot be deleted!")
+            return render(request, 'country_undelete.html', context)
+
 
 class RegionListView(ListView):
     model = models.Region
