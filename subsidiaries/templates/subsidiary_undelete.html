@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Check Subsidiary Delete{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="display-6">Check Subsidiary Delete</h3>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"><strong class="bg-danger">Subsidiary <strong>{{ subsidiary.register }} - {{ subsidiary.name }}</strong> already has related movement, please check!</strong></h3>
+            <p></p>
+            <p class="card-text">Register: <strong>{{ subsidiary.register }}</strong></p>
+            <p class="card-text">Name: <strong>{{ subsidiary.name }}</strong></p>
+            <p class="card-text">Fantasy Name: <strong>{{ subsidiary.fantasy_name }}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'subsidiary_list' %}" class="btn btn-secondary">Cancel and
+                    Return</a>
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
