@@ -200,3 +200,19 @@ class RegionDeleteView(DeleteView):
     model = models.Region
     template_name = 'region_delete.html'
     success_url = reverse_lazy('region_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        region = self.get_object()
+        context['name'] = region.name
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "Region is already related, cannot be deleted!")
+            return render(request, 'region_undelete.html', context)
