@@ -106,6 +106,22 @@ class StateDeleteView(DeleteView):
     template_name = 'state_delete.html'
     success_url = reverse_lazy('state_list')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        state = self.get_object()
+        context['name'] = state.name
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data()
+        try:
+            self.object.delete()
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, "State is already related, cannot be deleted!")
+            return render(request, 'state_undelete.html', context)
+
 
 class CountryListView(ListView):
     model = models.Country
